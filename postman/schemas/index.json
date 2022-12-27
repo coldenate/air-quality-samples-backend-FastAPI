@@ -1,0 +1,209 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "FastAPI",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/entry/entry": {
+      "post": {
+        "tags": [
+          "entry"
+        ],
+        "summary": "Create Entry",
+        "description": "Create a new entry in the database",
+        "operationId": "create_entry_entry_entry_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntryModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Add new entry to the database",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entry/entries": {
+      "get": {
+        "tags": [
+          "entry"
+        ],
+        "summary": "List Entries",
+        "description": "List all entries in the database",
+        "operationId": "list_entries_entry_entries_get",
+        "responses": {
+          "200": {
+            "description": "List all entries",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/entry/{id}": {
+      "delete": {
+        "tags": [
+          "entry"
+        ],
+        "summary": "Delete Entry",
+        "operationId": "delete_entry_entry__id__delete",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Id",
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete Task",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EntryModel": {
+        "title": "EntryModel",
+        "type": "object",
+        "properties": {
+          "_id": {
+            "title": " Id",
+            "type": "string"
+          },
+          "room_num": {
+            "title": "Room Num",
+            "type": "integer"
+          },
+          "timestamp": {
+            "title": "Timestamp",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string",
+                "format": "date-time"
+              }
+            ]
+          },
+          "raw_voc": {
+            "title": "Raw Voc",
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "raw_pm25": {
+            "title": "Raw Pm25",
+            "type": "integer"
+          },
+          "temperature": {
+            "title": "Temperature",
+            "type": "integer"
+          },
+          "humidity": {
+            "title": "Humidity",
+            "type": "integer"
+          }
+        },
+        "description": "A class describing an object with the following attributes: room num, timestamp, raw VOC, raw PM2.5, and the Room Location, and temperature+humidity Room location will be a predefined environment variable."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

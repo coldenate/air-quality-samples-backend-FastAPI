@@ -1,0 +1,17 @@
+# ╔═══════════════════════════════ Nixpacks v1.0.2 ══════════════════════════════╗
+# ﻿║ setup      │ python311, gcc                                                   ║
+# ﻿║──────────────────────────────────────────────────────────────────────────────║
+# ﻿║ install    │ python -m venv /opt/venv && . /opt/venv/bin/activate && pip     ║
+# ﻿║            │ install -r requirements.txt                                     ║
+# ﻿║──────────────────────────────────────────────────────────────────────────────║
+# ﻿║ start      │ python3 -m uvicorn main:app --host 0.0.0.0 --port $PORT         ║
+# ﻿╚══════════════════════════════════════════════════════════════════════════════╝
+
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[phases.install]
+cmds = ["python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "python3 -m uvicorn main:app --host 0.0.0.0 --port $PORT"

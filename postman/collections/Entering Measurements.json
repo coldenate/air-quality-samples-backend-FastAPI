@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "573800ee-b600-47bb-ad56-cf1f59f7613b",
+		"name": "Entering Measurements",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "19008758-573800ee-b600-47bb-ad56-cf1f59f7613b"
+	},
+	"item": [
+		{
+			"name": "Create an Entry",
+			"id": "83e0fd23-3acd-4691-9697-897f826270e5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room_num\": 216,\n    \"timestamp\": \"2022-12-26 17:46:59\",\n    \"raw_voc\": 100,\n    \"raw_pm25\": 100,\n    \"temperature\": 100,\n    \"humidity\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "measure.up.railway.app/entry/entry",
+					"host": [
+						"measure",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"entry",
+						"entry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "533aa925-affb-48c3-ab21-d63b7ed5815f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "measure.up.railway.app/entry/{id}",
+					"host": [
+						"measure",
+						"up",
+						"railway",
+						"app"
+					],
+					"path": [
+						"entry",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
