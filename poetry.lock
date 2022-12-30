@@ -25,7 +25,7 @@ trio = ["trio (>=0.16,<0.22)"]
 name = "astroid"
 version = "2.12.13"
 description = "An abstract syntax tree for Python with inference support."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7.2"
 files = [
@@ -41,7 +41,7 @@ wrapt = {version = ">=1.14,<2", markers = "python_version >= \"3.11\""}
 name = "black"
 version = "22.12.0"
 description = "The uncompromising code formatter."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -75,7 +75,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 name = "build"
 version = "0.9.0"
 description = "A simple, correct PEP 517 build frontend"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -137,7 +137,7 @@ files = [
 name = "dill"
 version = "0.3.6"
 description = "serialize all of python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -343,7 +343,7 @@ files = [
 name = "isort"
 version = "5.11.3"
 description = "A Python utility / library to sort Python imports."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7.0"
 files = [
@@ -391,7 +391,7 @@ i18n = ["Babel (>=2.7)"]
 name = "lazy-object-proxy"
 version = "1.8.0"
 description = "A fast and thorough lazy object proxy."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -470,7 +470,7 @@ files = [
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -506,7 +506,7 @@ zstd = ["pymongo[zstd] (>=4.1,<5)"]
 name = "mypy-extensions"
 version = "0.4.3"
 description = "Experimental type system extensions for programs checked with the mypy typechecker."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -572,7 +572,7 @@ files = [
 name = "packaging"
 version = "22.0"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -584,7 +584,7 @@ files = [
 name = "pathspec"
 version = "0.10.3"
 description = "Utility library for gitignore style pattern matching of file paths."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -596,7 +596,7 @@ files = [
 name = "pep517"
 version = "0.13.0"
 description = "Wrappers to build Python packages using PEP 517 hooks"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -608,7 +608,7 @@ files = [
 name = "pip"
 version = "22.3.1"
 description = "The PyPA recommended tool for installing Python packages."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -620,7 +620,7 @@ files = [
 name = "pip-tools"
 version = "6.12.1"
 description = "pip-tools keeps your pinned dependencies fresh."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -643,7 +643,7 @@ testing = ["flit-core (>=2,<4)", "poetry-core (>=1.0.0)", "pytest (>=7.2.0)", "p
 name = "platformdirs"
 version = "2.6.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -712,7 +712,7 @@ email = ["email-validator (>=1.0.3)"]
 name = "pylint"
 version = "2.15.9"
 description = "python code static checker"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7.2"
 files = [
@@ -929,7 +929,7 @@ idna2008 = ["idna"]
 name = "setuptools"
 version = "65.6.3"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -988,7 +988,7 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyam
 name = "tomlkit"
 version = "0.11.6"
 description = "Style preserving TOML library"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -1268,7 +1268,7 @@ files = [
 name = "wheel"
 version = "0.38.4"
 description = "A built-package format for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1283,7 +1283,7 @@ test = ["pytest (>=3.0.0)"]
 name = "wrapt"
 version = "1.14.1"
 description = "Module for decorators, wrappers and monkey patching."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 files = [
@@ -1356,4 +1356,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "9b08922675ebec9071971d2341dc9becba7ee4673f22d131fec5a7edacd0d8df"
+content-hash = "8cb1ed04aa94796d4190a615bc46cc929f19abddd0fb66c51963330524b46b1e"
