@@ -15,11 +15,13 @@ router = APIRouter()
 async def create_entry(request: Request, entry: EntryModel = Body(...)) -> JSONResponse:
     """Create a new entry in the database"""
     entry_json = jsonable_encoder(entry)
-    if isinstance(entry_json["timestamp"], str):
-        # convert to datetime object
-        entry_json["timestamp"] = datetime.datetime.strptime(
-            entry_json["timestamp"], "%Y-%m-%d %H:%M:%S"
-        )
+    # if isinstance(entry_json["timestamp"], str):
+    #     # convert to datetime object
+    #     entry_json["timestamp"] = datetime.datetime.strptime(
+    #         entry_json["timestamp"], "%Y-%m-%d %H:%M:%S"
+    #     )
+    # we create our own timestamp
+    entry_json["timestamp"] = datetime.datetime.now()
     entry_json["room_location"] = room_dict[entry_json["room_num"]]
     new_entry = await request.app.mongodb["measurements"].insert_one(entry_json)
     created_entry = await request.app.mongodb["measurements"].find_one(
