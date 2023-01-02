@@ -5,11 +5,19 @@ from apps.db_save.models import EntryModel
 from config.settings import settings
 from fastapi.middleware.cors import CORSMiddleware
 
-from apps.db_save.routers import entry_router, response_router # pylint: disable=E0611, C0412
+from apps.db_save.routers import (
+    entry_router,
+    response_router,
+)  # pylint: disable=E0611, C0412
 
 app = FastAPI()
 
-origins = ["http://localhost:3000", "localhost:3000"]
+origins = [
+    "http://localhost:3000",
+    "localhost:3000",
+    "https://coldenate.github.io",
+    "coldenate.github.io",
+]
 
 
 app.add_middleware(
