@@ -3,12 +3,22 @@ import uvicorn
 from motor.motor_asyncio import AsyncIOMotorClient
 from apps.db_save.models import EntryModel
 from config.settings import settings
+from fastapi.middleware.cors import CORSMiddleware
 
-from apps.db_save.routers import (
-    router as entry_router,
-)  # TODO: fix "import from package apps are not grouped" idk what this is???
+from apps.db_save.routers import entry_router, response_router # pylint: disable=E0611, C0412
 
 app = FastAPI()
+
+origins = ["http://localhost:3000", "localhost:3000"]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
@@ -26,6 +36,7 @@ async def shutdown_db_client():
 
 app.include_router(entry_router, tags=["entry"], prefix="/entry")
 # app.include_router(entry_router, tags=["entry"], prefix="/entries")
+app.include_router(response_router, tags=["responses"], prefix="/responses")
 
 cals = EntryModel()
 

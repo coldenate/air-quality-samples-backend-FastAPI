@@ -16,8 +16,6 @@ class EntryModel(BaseModel):
     temperature: int | None = None
     humidity: int | None = None
 
-
-
     def digest_json(self, json_digest):
         """Digest the JSON and populate the fields"""
         # example json
@@ -37,6 +35,41 @@ class EntryModel(BaseModel):
         self.room_location = room_dict[json_digest["room_num"]]
         self.temperature = json_digest["temperature"]
         self.humidity = json_digest["humidity"]
+
+
+class ResponseModel(BaseModel):
+    """A model for the responses to the survey questions. Example input:
+    {
+        "consent_question": "True",
+        "email_address": "n8sol022@gmail.com",
+        "room_num": "241",
+        "fatigue": 3,
+        "distractions": "True",
+        "meds": "True",
+        "subtances": "True",
+        "discomfort": "True",
+        "sleep": "False",
+        "reaction_time_ms": -8,
+        "visual_mem_level": 12,
+        "aiming_reaction_ms": 2,
+        "chimp_score": 12
+    }
+    """
+
+    id: str = Field(default_factory=uuid.uuid4, alias="_id")
+    consent_question: bool = None  # type: ignore
+    email_address: str = None  # type: ignore
+    room_num: int = None  # type: ignore
+    fatigue: int = None  # type: ignore
+    distractions: bool = None  # type: ignore
+    meds: bool = None  # type: ignore
+    substances: bool = None  # type: ignore
+    discomfort: bool = None  # type: ignore
+    sleep: bool = None  # type: ignore
+    reaction_time_ms: int = None  # type: ignore
+    visual_mem_level: int = None  # type: ignore
+    aiming_reaction_ms: int = None  # type: ignore
+    chimp_score: int = None  # type: ignore
 
     # class Config:
     #     allow_population_by_field_name = True
