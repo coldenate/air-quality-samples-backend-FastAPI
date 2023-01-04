@@ -11,8 +11,9 @@ class EntryModel(BaseModel):
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
     room_num: int = None  # type: ignore
     timestamp: str | datetime.datetime | None = None  # type: ignore
-    raw_voc: int | None | str = None
-    raw_pm25: int | None = None
+    tvoc: int | None | str = None
+    co2: int | None | str = None
+    pm25: int | None = None
     temperature: int | None = None
     humidity: int | None = None
 
@@ -30,8 +31,9 @@ class EntryModel(BaseModel):
         # }
         self.room_num = json_digest["room_num"]
         self.timestamp = json_digest["timestamp"]
-        self.raw_voc = json_digest["raw_voc"]
-        self.raw_pm25 = json_digest["raw_pm25"]
+        self.tvoc = json_digest["tvoc"]
+        self.co2 = json_digest["co2"]
+        self.pm25 = json_digest["pm25"]
         self.room_location = room_dict[json_digest["room_num"]]
         self.temperature = json_digest["temperature"]
         self.humidity = json_digest["humidity"]
