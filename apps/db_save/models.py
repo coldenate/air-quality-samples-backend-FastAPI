@@ -48,7 +48,7 @@ class ResponseModel(BaseModel):
         "fatigue": 3,
         "distractions": "True",
         "meds": "True",
-        "subtances": "True",
+        "subs": "True",
         "discomfort": "True",
         "sleep": "False",
         "reaction_time_ms": -8,
@@ -65,7 +65,7 @@ class ResponseModel(BaseModel):
     fatigue: int = None  # type: ignore
     distractions: bool = None  # type: ignore
     meds: bool = None  # type: ignore
-    substances: bool = None  # type: ignore
+    subs: bool = None  # type: ignore
     discomfort: bool = None  # type: ignore
     sleep: bool = None  # type: ignore
     reaction_time_ms: int = None  # type: ignore
