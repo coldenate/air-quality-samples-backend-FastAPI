@@ -19,6 +19,7 @@ response_router = APIRouter()
 async def create_response(request: Request, response: ResponseModel= Body(...)):
     """Create a new response in the database"""
     response_json = jsonable_encoder(response)
+    response_json["timestamp"] = datetime.datetime.now()
     new_response = await request.app.mongodb["surveys"].insert_one(response_json)
     created_response = await request.app.mongodb["surveys"].find_one(
         {"_id": new_response.inserted_id}
