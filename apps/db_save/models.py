@@ -59,6 +59,7 @@ class ResponseModel(BaseModel):
     """
 
     id: str = Field(default_factory=uuid.uuid4, alias="_id")
+    timestamp: str | datetime.datetime | None = None  # type: ignore
     consent_question: bool = None  # type: ignore
     email_address: str = None  # type: ignore
     room_num: int = None  # type: ignore
